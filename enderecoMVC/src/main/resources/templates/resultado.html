@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>Listagem dos Enderecos Cadastrados</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Listagem dos Enderecos Cadastrados</h1>
+	<table border=1>
+	<tr>
+		<th>Código: </th>
+		<th>Rua:</th>		
+		<th>Cidade: </th>		
+		<th>Cep: </th>
+		<th>Ação </th>
+		
+	</tr>
+	<tr th:each="lista: ${lista_endereco}">
+	    <td th:text="${lista.codigo}" />
+	    <td th:text="${lista.rua}" />
+	    <td th:text="${lista.cidade}" />
+		<td th:text="${lista.cep}" />				
+		<td> <a th:href="@{/deletar(id=${lista.codigo})}">Deletar</a></td>
+	</tr>
+	</table>
+    
+        <!--  CONT. IMPLEMENTACAO -->
+    
+    <a href="/inicio_cadastrar">Cadastrar novo endereco</a>    
+</body>
+</html>
